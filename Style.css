@@ -16,14 +16,10 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    background-color: #5d4945;
+    background-color: #ffffff;
     font-family: 'Poppins', sans-serif;
 
 }
-  
-h1 {
-color: rgba(255, 255, 255, 0.808);
-}   
 
 .shadow{
     
@@ -39,7 +35,7 @@ color: rgba(255, 255, 255, 0.808);
 }
 
 .logo{
-    color: white;
+    color: rgb(143, 141, 141);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: larger;
@@ -53,11 +49,32 @@ color: rgba(255, 255, 255, 0.808);
 }
 
 .nav-links a{
-    color: rgb(226, 226, 226);
+    color: rgb(143, 141, 141);
     text-decoration: none;
     letter-spacing: 3px;
     font-weight: bold;
     font-size: 14px;
+}
+
+.nav-links a:hover{
+   color: rgb(187, 187, 187); 
+font-weight: lighter;
+}
+.nav-links a::before{
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: rgb(175, 175, 175);
+
+    position: center   ;
+    width: 0%;
+
+    transition: all ease-in 200ms;
+
+}
+
+.nav-links a:hover::before{
+    width: 100%;
 }
 
 .nav-links li{
@@ -72,7 +89,7 @@ color: rgba(255, 255, 255, 0.808);
 .threelines div{
     width: 25px;
     height: 3px;
-    background-color: rgb(226, 226, 226);
+    background-color: rgb(143, 141, 141);
     margin: 5px;
     transition: all 0.3s ease;
 }
@@ -87,7 +104,7 @@ color: rgba(255, 255, 255, 0.808);
         right: 0px;
         height: 92vh;
         top: 8vh;
-        background-color: #5d4945;
+        background-color: rgb(255, 255, 255);
         display: flex;
         flex-direction: column;
         align-items: center;

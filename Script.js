@@ -22,7 +22,7 @@ const navSlide = () => {
         //Three Lines Animation
         threelines.classList.toggle('toggle')
     });
-
+    
 }
 
 const Funktionen = ()=>{
