@@ -6,32 +6,30 @@
 }
 
 body {
-    background-color: rgb(36, 167, 117);
+    background-color: rgb(223, 223, 223);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: large;
 }
 
-nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 8vh;
-    background-color: #ffffff;
-    font-family: 'Poppins', sans-serif;
-
-}
-
 .shadow{
-    
-    height: 230px;
-    width: 480px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     text-align: center;
-    margin: 50px;
+    margin: 16.1px;
 }
 
 .center{
     text-align: center;
+}
+
+nav{
+
+    position: static;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    display: flex;  
 }
 
 .logo{
@@ -69,7 +67,8 @@ font-weight: lighter;
     position: center   ;
     width: 0%;
 
-    transition: all ease-in 200ms;
+    transition: all ease-in 161ms;
+    /* Goldener Schnitt */
 
 }
 
@@ -94,12 +93,19 @@ font-weight: lighter;
     transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1450px) {
+    .shadow{
+        
+        border: 16.1px;
+    }
+    nav{
+        margin-left: 0px;
+    }
     body{
-        overflow: hidden;
+        overflow-x: hidden;
     }
     .nav-links{
-        
+
         position: absolute;
         right: 0px;
         height: 92vh;
@@ -111,6 +117,7 @@ font-weight: lighter;
         text-align: center;
         width: 25%;
         transform: translateX(100%);
+        transform: translateY(all);
     }
     .nav-links li{
         opacity: 0;
@@ -144,4 +151,20 @@ font-weight: lighter;
 }
 .toggle .line3{
     transform: rotate(45deg) translate(-5px,-6px);
+}
+
+/* Parallax */
+.marginbottom{
+    margin: 95% 0;
+}
+.parallax{
+    background: url("Images/Parralax2.svg") repeat fixed 100% ;
+    background-color: #ffffff;
+    background-size: cover;
+}
+.parallax-inner{
+
+    padding-top: 5%;
+    padding-bottom: 8.1%;
+    /* GoldenerSchnitt */
 }
