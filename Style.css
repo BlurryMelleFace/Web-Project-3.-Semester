@@ -155,7 +155,6 @@ font-weight: lighter;
 /* Parallax */
 .marginbottom{
     margin: 95% 0;
-    
 }
 .parallax{
     background: url("Images/Parralax2.svg") repeat fixed 100% ;
@@ -167,4 +166,11 @@ font-weight: lighter;
     padding-top: 15%;
     padding-bottom: 6.5%;
     /* GoldenerSchnitt */
+}
+
+.parallax img:hover{
+    width: 17%;
+    filter: drop-shadow(10px 20px 20px rgb(0 0 0 / 0.4));
+    transition: all 0.5s ease-in-out;
+
 }
