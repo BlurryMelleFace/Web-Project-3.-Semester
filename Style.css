@@ -22,8 +22,8 @@ body {
 }
 
 nav{
-
-    position: static;
+    width: 100%;
+    position: fixed;
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
@@ -98,15 +98,12 @@ font-weight: lighter;
         
         border: 16.1px;
     }
-    nav{
-        margin-left: 0px;
-    }
     body{
         overflow-x: hidden;
     }
     .nav-links{
-
-        position: absolute;
+        
+        position: fixed;
         right: 0px;
         height: 92vh;
         top: 8vh;
@@ -164,7 +161,7 @@ font-weight: lighter;
 }
 .parallax-inner{
 
-    padding-top: 5%;
-    padding-bottom: 8.1%;
+    padding-top: 15%;
+    padding-bottom: 6.5%;
     /* GoldenerSchnitt */
 }
