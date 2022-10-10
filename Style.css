@@ -31,10 +31,11 @@ nav{
     font-family: 'Poppins', sans-serif;
     display: flex;  
     box-shadow: 0px 15px 10px -15px rgb(97, 97, 97);    
+    z-index: 1;
 }
 
 .logo{
-    color: rgb(143, 141, 141);
+    color: rgb(118, 118, 118);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: larger;
@@ -48,7 +49,7 @@ nav{
 }
 
 .nav-links a{
-    color: rgb(143, 141, 141);
+    color: rgb(118, 118, 118);
     text-decoration: none;
     letter-spacing: 3px;
     font-weight: bold;
@@ -152,10 +153,6 @@ font-weight: lighter;
     transform: rotate(45deg) translate(-5px,-6px);
 }
 
-/* Parallax */
-.marginbottom{
-    margin: 95% 0;
-}
 .parallax{
     background: url("Images/Parralax2.svg") repeat fixed 100% ;
     background-color: #ffffff;
@@ -170,7 +167,25 @@ font-weight: lighter;
 
 .parallax img:hover{
     width: 17%;
-    filter: drop-shadow(10px 20px 20px rgb(0 0 0 / 0.4));
+    filter: drop-shadow(0px 30px 30px rgb(0 0 0 / 0.4));
     transition: all 0.5s ease-in-out;
 
+}
+/* Oval Banner */
+.halfcircle {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1900' height='150' viewBox='0 0 1900 150' preserveAspectRatio='none'%3E%3Cpath d='M0,25.7C243.4,84,596.7,150,950,150c353.3,0,706.6-66,950-124.3V150H0V25.7z' fill='rgb(223, 223, 223)'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-position: center;
+    bottom: 8rem;
+    content: '';
+    height: 8rem;
+    left: 0;
+    position: relative;
+    width: 100%;
+    box-shadow: inset 0 -1px 0 0 rgb(223, 223, 223);
+}
+
+/* Parallax */
+.marginbottom{
+    margin: 95% 0;
 }
