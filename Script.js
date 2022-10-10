@@ -1,9 +1,7 @@
 const navSlide = () => { 
     const threelines = document.querySelector('.threelines');
     const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li')
-    
-    
+    const navLinks = document.querySelectorAll('.nav-links li');
     
     
     threelines.addEventListener('click',()=>{
