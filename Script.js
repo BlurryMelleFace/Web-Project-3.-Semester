@@ -48,11 +48,17 @@ const HideButtonText = () => {
     close.style.alignContent = "center"; 
 }
 
-
-
 //Alle Funktionen die dauernd aufgerufen werden 
 const Funktionen = ()=>{
     navSlide();
 
 }
 Funktionen();
+
+//Selected Page
+document.querySelectorAll('.nav-links a').forEach
+(link => {
+    if(link.href == window.location.href){
+        link.setAttribute('current', 'page')
+    }
+})

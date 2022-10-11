@@ -40,7 +40,6 @@ body {
     display: none;
 }
 
-
 /*HTML Elemente*/
 
 h1{
@@ -82,8 +81,8 @@ button:hover{
 
 }
 
-
 /* Nav Bar */
+
 .navpadding{
     padding-top: 10vh;
 }
