@@ -121,7 +121,7 @@ nav{
 .nav-links a[current="page"]{
     text-decoration: underline var(--main-color) 0.168rem;
     text-transform: uppercase;
-    text-underline-offset: 1rem;
+    text-underline-offset: 0.6rem;
 }
 .nav-links a:hover{
     color: rgb(187, 187, 187); 
