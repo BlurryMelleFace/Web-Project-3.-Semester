@@ -13,6 +13,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower" rel="stylesheet">
+
+<link id="BarJokes" href="Data/BarJokes.csv">
+
 </head>
 
 <body>
@@ -59,18 +62,25 @@
 
     
     <!-- Bock1 -->
-    <section class="block1">
+    <section class="block1" style="bottom: 4rem;">
         <div class="block1 innen">
-            <h1 class="center maincolo"><u>My choice, my taste.</u></h1>
+            <h1 class="center"><u>My choice, my taste.</u></h1>
         </div>
-        <p>
-            <div class="center">
-                <button>
-                    Bar Joke
-                </button>
+        <div class="center">
+            <div style="margin: 0.5rem;">
+                <h2 id="JokesID" class="hidden">
+                    A man walks into a bar and notices a steak hanging from the ceiling. When he asks about it, the bartender says, “If you can jump up and touch it, drinks are on the house all night, but if you miss, everyone’s drinks are on your tab for the next two hours. Do you want to try?” The man decided to not take the risk. He thought the steaks were too high. 
+                </h2>
             </div>
-        </p>
+            <button id="CloseID" onclick="HideButtonText()" class="hidden">
+                X
+            </button>
+            <button onclick="ShowButtonText()" class="segment">
+                Bar Joke
+            </button>
+        </div>
     </section>
+
 
 
     <!-- Marginbottom -->

@@ -7,10 +7,15 @@
 
 
 body {
-    background-color: rgb(223, 223, 223);
+    --main-color: rgb(118, 118, 118);
+    --background-color: rgb(223, 223, 223);
+    --element-color: rgb(255, 255, 255);
+    --alt-color: rgb(255, 179, 0);
+    --alt2-color: rgb(26, 133, 210);
+
+    background-color: var(--background-color);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: large;
-    --main-color: rgb(118, 118, 118);
 }
 
 /*Properties*/
@@ -25,7 +30,16 @@ body {
 }
 .center{
     text-align: center;
+    align-items: center;
+    width: 100%;
 }
+.segment{
+    margin: 3rem;
+}
+.hidden{
+    display: none;
+}
+
 
 /*HTML Elemente*/
 
@@ -33,9 +47,21 @@ h1{
     font-family: 'Indie Flower', cursive;
     letter-spacing: 1.681px;
     font-size: xx-large;
-    margin: 0 0 0.875em 0;
+    margin: 0px;
     padding-bottom: 0.875em;
     color: var(--main-color);
+}
+h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 21px;
+    letter-spacing: 0.8px;
+    word-spacing: 4.4px;
+    color:  var(--alt-color);
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-variant: large;
+    text-transform: none;
+    text-shadow:0px 1px 1px var(--alt2-color);
 }
 p{
     font-size: 1.1rem;
@@ -44,15 +70,19 @@ button {
     cursor: pointer;
     border: 2px solid var(--main-color);
     color: var(--main-color);
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
-    padding: 5px;
+    background-color: var(--element-color);
+    padding: 10px;
+    border-radius: 15px;
 }
 button:hover{
-    transition-duration: 0.4s;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+    border-style: dotted;
+    transition: all 0.168s ease-in-out;
+
 }
+
 
 /* Nav Bar */
 
@@ -62,7 +92,7 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    background-color: #ffffff;
+    background-color: var(--element-color);
     font-family: 'Poppins', sans-serif;
     display: flex;  
     box-shadow: 0px 15px 10px -15px rgb(97, 97, 97);    
@@ -218,7 +248,7 @@ nav{
     position: relative;
 }
 .block1 .innen{
-    padding: -20px;
+    padding: 0px;
 }
 
 /* Margin Bottom */
