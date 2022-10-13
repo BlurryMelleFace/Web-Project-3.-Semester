@@ -273,7 +273,6 @@ nav{
 /* Block1 */
 
 .block1{
-    padding: 0rem;
     position: relative;
 }
 
@@ -281,12 +280,12 @@ nav{
 
 .block2{
     position: relative;
+    
 }
 .inner{
-    margin: 0 auto;
-    width: 75rem;
+    margin-right: 13rem;  
+    margin-left: 13rem;
 }
-
 /* Margin Bottom */
 
 .marginbottom{
