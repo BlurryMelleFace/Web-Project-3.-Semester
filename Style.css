@@ -91,7 +91,7 @@ p{
 }   
 button {
     cursor: pointer;
-    border: 0.168px solid var(--main-color);
+    border: 1px solid var(--main-color);
     color: var(--main-color);
     font-size: 25px;
     font-family: 'Poppins', sans-serif;
@@ -246,7 +246,7 @@ nav{
 .parallax-inner{
 
     padding-top: 6.8%;
-    padding-bottom: 6.5%;
+    padding-bottom: 6.8%;
     /* GoldenerSchnitt */
 }
 .parallax img:hover{
@@ -269,6 +269,18 @@ nav{
     position: relative;
     width: 100%;
 }
+.halfcircle2{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1900' height='150' viewBox='0 0 1900 150' preserveAspectRatio='none'%3E%3Cpath d='M0,25.7C243.4,84,596.7,150,950,150c353.3,0,706.6-66,950-124.3V150H0V25.7z' fill='rgb(237, 237, 237)'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-position: center;
+    bottom: -6.18rem;
+    content: '';
+    height: 6.18rem;
+    left: 0;
+    position: relative;
+    width: 100%;
+    transform: scaleY(-1);
+}
 
 /* Block1 */
 
@@ -285,6 +297,84 @@ nav{
 .inner{
     margin-right: 13rem;  
     margin-left: 13rem;
+}
+
+/* Footer */
+
+footer{
+    background: var(--element-color);
+    height: auto;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 40px;
+    color: var(--main-color);
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h1{
+    font-size: 1.68rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0  3rem 0;
+}
+
+.socials li{
+    margin: 0 10px;
+}
+
+.socials a{
+    text-decoration: none;
+    color: rgb(101, 100, 100);
+}
+
+.socials a i{
+    font-size: 1.1rem;
+    transition: color 0.5s ease;
+}
+
+.socials a:hover{
+    color: aqua;
+}
+.footer-bottom{
+    background: white;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+
+}
+
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: 0.4;
+    font-weight: 200;
 }
 /* Margin Bottom */
 
