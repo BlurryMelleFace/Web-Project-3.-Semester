@@ -7,11 +7,16 @@
 
 
 body {
-    --main-color: rgb(118, 118, 118);
-    --background-color: rgb(223, 223, 223);
+    --main-color: rgb(86, 86, 86);
+    --main2-color: rgb(17, 85, 89);
+
+    --hyp-color: rgb(49, 71, 72);
+
+    --background-color: rgb(237, 237, 237);
     --element-color: rgb(255, 255, 255);
     --alt-color: rgb(255, 179, 0);
     --alt2-color: rgb(26, 133, 210);
+
 
     background-color: var(--background-color);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -39,6 +44,14 @@ body {
 .hidden{
     display: none;
 }
+.hyperlink{
+    text-decoration: none;
+    color: var(--main2-color);
+}
+.hyperlink:hover {
+    filter: drop-shadow(0px 1px 1px var(--hyp-color)); 
+    transition: all 0.1s ease-in;
+}
 
 /*HTML Elemente*/
 
@@ -52,7 +65,7 @@ h1{
 }
 h2{
     font-family: 'Poppins', sans-serif;
-    font-size: 21px;
+    font-size: 25px;
     letter-spacing: 0.8px;
     word-spacing: 4.4px;
     color:  var(--alt-color);
@@ -60,7 +73,18 @@ h2{
     text-decoration: none solid rgb(68, 68, 68);
     font-variant: large;
     text-transform: none;
-    text-shadow:0px 1px 1px var(--alt2-color);
+    text-shadow:0px 0.5px 0.5px var(--alt2-color);
+}
+h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 21px;
+    letter-spacing: 1.68px;
+    word-spacing: 4.4px;
+    color:  var(--main2-color);
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-variant: large;
+    text-transform: none;
 }
 p{
     font-size: 1.1rem;
@@ -216,7 +240,7 @@ nav{
 
 .parallax{
     background: url("Images/Parralax2.svg") repeat fixed 100% ;
-    background-color: #ffffff;
+    background-color: var(--background-color);
     background-size: cover;
 }
 .parallax-inner{
@@ -235,7 +259,7 @@ nav{
 /* Oval Banner */
 
 .halfcircle {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1900' height='150' viewBox='0 0 1900 150' preserveAspectRatio='none'%3E%3Cpath d='M0,25.7C243.4,84,596.7,150,950,150c353.3,0,706.6-66,950-124.3V150H0V25.7z' fill='rgb(223, 223, 223)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1900' height='150' viewBox='0 0 1900 150' preserveAspectRatio='none'%3E%3Cpath d='M0,25.7C243.4,84,596.7,150,950,150c353.3,0,706.6-66,950-124.3V150H0V25.7z' fill='rgb(237, 237, 237)'/%3E%3C/svg%3E");
     background-size: 100% 100%;
     background-position: center;
     bottom: 6.18rem;
@@ -244,17 +268,23 @@ nav{
     left: 0;
     position: relative;
     width: 100%;
-    box-shadow: inset 0 -1px 0 0 rgb(223, 223, 223);
 }
 
 /* Block1 */
 
-.block1 {
+.block1{
     padding: 0rem;
     position: relative;
 }
-.block1 .innen{
-    padding: 0px;
+
+/* Block2 */
+
+.block2{
+    position: relative;
+}
+.inner{
+    margin: 0 auto;
+    width: 75rem;
 }
 
 /* Margin Bottom */

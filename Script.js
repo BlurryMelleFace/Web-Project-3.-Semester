@@ -62,3 +62,5 @@ document.querySelectorAll('.nav-links a').forEach
         link.setAttribute('current', 'page')
     }
 })
+
+
