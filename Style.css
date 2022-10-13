@@ -1,16 +1,21 @@
+/* Shortcuts
+
+Ctrl+K Ctrl+0   Fold All
+Ctrl+K Ctrl+J   Unfold All
+Ctrl+Shift+?    Fold One
+Ctrl+Shift+´    Unfold One */
 
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-
-
 body {
     --main-color: rgb(86, 86, 86);
     --main2-color: rgb(17, 85, 89);
 
     --hyp-color: rgb(49, 71, 72);
+    --icon-color: rgb(74, 70, 70);
 
     --background-color: rgb(237, 237, 237);
     --element-color: rgb(255, 255, 255);
@@ -110,7 +115,6 @@ button:hover{
 .navpadding{
     padding-top: 10vh;
 }
-
 nav{
     width: 100%;
     position: fixed;
@@ -127,8 +131,7 @@ nav{
     color: rgb(118, 118, 118);
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: larger;
-      
+    font-size: larger;  
 }
 .nav-links{
     display: flex;
@@ -309,7 +312,6 @@ footer{
     padding-top: 40px;
     color: var(--main-color);
 }
-
 .footer-content{
     display: flex;
     align-items: center;
@@ -317,21 +319,18 @@ footer{
     flex-direction: column;
     text-align: center;
 }
-
 .footer-content h1{
     font-size: 1.68rem;
     font-weight: 400;
     text-transform: capitalize;
     line-height: 3rem;
 }
-
 .footer-content p{
     max-width: 500px;
     margin: 10px auto;
     line-height: 28px;
     font-size: 14px;
 }
-
 .socials{
     list-style: none;
     display: flex;
@@ -339,41 +338,34 @@ footer{
     justify-content: center;
     margin: 1rem 0  3rem 0;
 }
-
 .socials li{
-    margin: 0 10px;
+    margin: 16.8px;
 }
-
 .socials a{
     text-decoration: none;
-    color: rgb(101, 100, 100);
+    color: var(--icon-color)
 }
-
 .socials a i{
-    font-size: 1.1rem;
+    font-size: 3rem;
     transition: color 0.5s ease;
 }
-
-.socials a:hover{
-    color: aqua;
+.socials i:hover{
+    transform: scaleX(0.67);
+    transition: 0.3s;
 }
 .footer-bottom{
-    background: white;
+    background: var(--element-color);
     width: 100%;
-    padding: 10px 0;
-    text-align: center;
-
+    padding: 10px ;
 }
-
 .footer-bottom p{
     font-size: 14px;
     word-spacing: 2px;
     text-transform: capitalize;
 }
-
 .footer-bottom span{
     text-transform: uppercase;
-    opacity: 0.4;
+    opacity: 0.5;
     font-weight: 200;
 }
 /* Margin Bottom */
