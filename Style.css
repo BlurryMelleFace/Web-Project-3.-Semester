@@ -301,6 +301,10 @@ nav{
     margin-right: 13rem;  
     margin-left: 13rem;
 }
+.block2 ol img{
+    text-align: right;
+    box-shadow: 12ex;
+}
 
 /* Footer */
 
