@@ -46,9 +46,11 @@ const IngredientRequest = (Ingredients)=>{
                     for(let i = 0; i < Data.drinks.length; i++){
                         
                         Array[i] = Data.drinks[i];
-                    }       
+
+                    }   
+                    
+                    TransferData(Array,i);
     
-                console.log(Array)  
             }else{
                 console.log(`error ${request.status}`)
             }
@@ -56,6 +58,21 @@ const IngredientRequest = (Ingredients)=>{
     }
 }
 
+const TransferData = (Array,i) => {
+
+    const DrinkArray = JSON.stringify(Array)
+
+    localStorage.setItem(`DrinkArray${i}`,DrinkArray);
+
+    const string = localStorage.getItem(`DrinkArray${i}`);
+
+    const parsedstring = JSON.parse(string);
+
+    console.log(parsedstring);
+
+    console.log(localStorage.getItem("DrinkArray0"));
+
+}
 
 var Ingredients = ["Gin","Vodka","Sugar"];
 
