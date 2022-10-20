@@ -23,8 +23,6 @@ const NameRequest = ()=>{
 
 const IngredientRequest = (Ingredients)=>{
 
-    console.log(Ingredients.length);
-
     for(let i = 0; i < Ingredients.length; i++){
 
         Ingredientselement = Ingredients[i];
@@ -56,6 +54,9 @@ const IngredientRequest = (Ingredients)=>{
             }
         }
     }
+
+    SchnittDrink(Ingredients.length);
+
 }
 
 const TransferData = (Array,i) => {
@@ -64,17 +65,80 @@ const TransferData = (Array,i) => {
 
     localStorage.setItem(`DrinkArray${i}`,DrinkArray);
 
+    //Stored in Local Storage!!!
+
     const string = localStorage.getItem(`DrinkArray${i}`);
 
     const parsedstring = JSON.parse(string);
 
     console.log(parsedstring);
 
-    console.log(localStorage.getItem("DrinkArray0"));
-
 }
 
-var Ingredients = ["Gin","Vodka","Sugar"];
+const SchnittDrink = (length) => {
+
+    localStorage.setItem("SchnittmengeDrinks",(SchnittmengeDrinks = []));
+
+    for (let i = 0; i < length; i++) {
+        
+        if (i == 0) {
+            localStorage.setItem("SchnittmengeDrinks",(localStorage.getItem(`DrinkArray${i}`)));
+            
+        } else {
+            console.log(JSON.parse(localStorage.getItem("SchnittmengeDrinks")));
+            const SchnittAkt = JSON.parse(localStorage.getItem("SchnittmengeDrinks"));
+            slen = SchnittAkt.length;
+            
+
+            const ArrAkt = JSON.parse(localStorage.getItem(`DrinkArray${i}`));
+            alen = ArrAkt.length;
+
+            console.log(alen)
+            console.log(slen)
+
+
+
+            Zwischenwert = [];
+            console.log(Zwischenwert);
+        
+            counter = 0;
+
+
+            for (let ii = 0; ii < slen; ii++) {
+                
+                for (let j = 0; j < alen; j++) {
+                    console.log("hello");
+                    if (SchnittAkt[ii].strDrink == ArrAkt[j].strDrink) {
+                        Zwischenwert[counter] = SchnittAkt[ii];
+                        
+                        localStorage.setItem("Zwischenwert",JSON.stringify(Zwischenwert));
+                        console.log(counter);
+                        counter = (counter + 1);
+
+                    }
+                    
+                }
+                
+                
+            }
+            
+            console.log(JSON.parse(localStorage.getItem("Zwischenwert")));
+
+            localStorage.setItem("SchnittmengeDrinks",localStorage.getItem("Zwischenwert"));
+
+            console.log(JSON.parse(localStorage.getItem("SchnittmengeDrinks")));
+                   
+        }
+    }
+
+    // Parsing the Intersection and printing
+
+    console.log(JSON.parse(localStorage.getItem("SchnittmengeDrinks")));;
+    
+}
+
+
+var Ingredients = ["Lime","sugar","mint","Cachaca"];
 
 IngredientRequest(Ingredients);
 
