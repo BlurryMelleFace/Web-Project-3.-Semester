@@ -379,16 +379,16 @@ footer{
 }
 
 /* Search Bar (Name) */
-form.formname input[type=text] {
-    padding: 10px;
+.formname input[type=text] {
+    padding: 16.8px;
     font-size: 17px;
     border: 1px solid var(--icon-color);
-    width: 20%;
+    width: 30%;
     background: var(--element-color);
 }
-form.formname button {
-    width: 5%;
-    padding: 7.1px;
+.formname button {
+    width: 14%;
+    padding: 13.8px;
     background: var(--hyp-color);
     color: var(--element-color);
     font-size: 17px;
@@ -396,10 +396,7 @@ form.formname button {
     border-left: none; /* Prevent double borders */
     cursor: pointer;
 }
-form.example button:hover {
-    background: #0b7dda;
-}
-form.example::after {
+.example::after {
     content: "";
     clear: both;
     display: table;

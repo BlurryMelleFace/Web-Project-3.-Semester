@@ -1,6 +1,3 @@
-
-
-
 //Recepies According to Name 
 const NameRequest = (Name)=>{
 
@@ -13,7 +10,7 @@ const NameRequest = (Name)=>{
         if(request.status == 200){
             var Data = JSON.parse(request.response);
             
-            console.log(Data.drinks[0]);
+            console.log(Data.drinks);
 
         }else{
             console.log(`error ${request.status}`)
@@ -189,6 +186,26 @@ const CategoryRequest = (Category) => {
     }
 
 }
+
+
+//Search
+
+const NameSearchInput = document.querySelector("[Data-Search]")
+NameSearchInput.addEventListener("input",(e) => {
+    const value = e.target.value
+    NameRequest(value);
+    console.log(value);
+}) 
+
+
+
+
+
+
+
+
+
+
 
 
 var Ingredients = ["vodka","Gin","Lime Juice cordial"];
