@@ -33,8 +33,19 @@ const NameRequestName = (Name)=>{
             for (let i = 0; i< Data.drinks.length; i++) {
                 NameArray[i] = Data.drinks[i].strDrink;         
             }
-            console.log(NameArray)   
 
+            localStorage.setItem(`NameRequestName`,JSON.stringify(NameArray))
+            const NameRequestArray = localStorage.getItem(`NameRequestName`);  
+            
+            let String = NameArray.toString();
+
+            console.log(String)
+
+            //let StringBig = String.split(',').join("<");  (Interesting)
+
+            let StringBig = String.split(',').join(" | ");
+            
+            document.getElementById('cocktailnameTEXT').innerHTML = StringBig;
         }else{
             console.log(`error ${request.status}`)
         }
@@ -216,7 +227,9 @@ const CategoryRequest = (Category) => {
 const NameSearchInput = document.querySelector("[Data-Search]")
 NameSearchInput.addEventListener("input",(e) => {
     const value = e.target.value
-    if(value != 0) NameRequestName(value);
+    if(value !== ""){
+        NameRequestName(value);
+    }
     console.log(value);
 }) 
 
