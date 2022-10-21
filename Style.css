@@ -377,3 +377,30 @@ footer{
 .marginbottom{
     margin: 95% 0;
 }
+
+/* Search Bar (Name) */
+form.formname input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid var(--icon-color);
+    width: 20%;
+    background: var(--element-color);
+}
+form.formname button {
+    width: 5%;
+    padding: 7.1px;
+    background: var(--hyp-color);
+    color: var(--element-color);
+    font-size: 17px;
+    border: 1px solid var(--icon-color);
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+}
+form.example button:hover {
+    background: #0b7dda;
+}
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

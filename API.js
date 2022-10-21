@@ -1,19 +1,19 @@
-const NameRequest = ()=>{
+
+
+
+//Recepies According to Name 
+const NameRequest = (Name)=>{
 
     const request = new XMLHttpRequest();
     
-    var LinkName = "www.thecocktaildb.com/api/json/v1/1/search.php?s=vodka";
-    
-    request.open("GET", `https://${LinkName}`);
+    request.open("GET", `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${Name}`);
     request.send();
     request.onload = ()=>{
-        console.log(request);
+
         if(request.status == 200){
-            console.log(JSON.parse(request.response));
             var Data = JSON.parse(request.response);
             
-            console.log(Data.drinks[2].idDrink);
-            console.log(Data.drinks[2].strDrink);
+            console.log(Data.drinks[0]);
 
         }else{
             console.log(`error ${request.status}`)
@@ -21,6 +21,27 @@ const NameRequest = ()=>{
     }
 }
 
+//Random Cocktail
+const RandomRequest = ()=>{
+
+    const request = new XMLHttpRequest();
+    
+    request.open("GET", `https://www.thecocktaildb.com/api/json/v1/1/random.php`);
+    request.send();
+    request.onload = ()=>{
+
+        if(request.status == 200){
+            var Data = JSON.parse(request.response);
+            
+            console.log(Data.drinks[0]);
+
+        }else{
+            console.log(`error ${request.status}`)
+        }
+    }
+}
+
+// Drinks To Make With Given Ingredients in Order!!!
 const IngredientRequest = (Ingredients)=>{
 
     for(let i = 0; i < Ingredients.length; i++){
@@ -29,9 +50,7 @@ const IngredientRequest = (Ingredients)=>{
 
         const request = new XMLHttpRequest();
         
-        var LinkIngredient = `www.thecocktaildb.com/api/json/v1/1/filter.php?i=${Ingredientselement}`;
-        
-        request.open("GET",`https://${LinkIngredient}`);
+        request.open("GET",`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${Ingredientselement}`);
         request.send();
         request.onload = ()=>{
 
@@ -56,9 +75,7 @@ const IngredientRequest = (Ingredients)=>{
     }
 
     SchnittDrink(Ingredients.length);
-
 }
-
 const TransferData = (Array,i) => {
 
     const DrinkArray = JSON.stringify(Array)
@@ -71,10 +88,9 @@ const TransferData = (Array,i) => {
 
     const parsedstring = JSON.parse(string);
 
-    console.log(parsedstring);
+    //console.log(parsedstring);
 
 }
-
 const SchnittDrink = (length) => {
 
     localStorage.setItem("SchnittmengeDrinks",(SchnittmengeDrinks = []));
@@ -85,7 +101,7 @@ const SchnittDrink = (length) => {
             localStorage.setItem("SchnittmengeDrinks",(localStorage.getItem(`DrinkArray${i}`)));
             
         } else {
-            console.log(JSON.parse(localStorage.getItem("SchnittmengeDrinks")));
+            //console.log(JSON.parse(localStorage.getItem("SchnittmengeDrinks")));
             const SchnittAkt = JSON.parse(localStorage.getItem("SchnittmengeDrinks"));
             slen = SchnittAkt.length;
             
@@ -93,13 +109,13 @@ const SchnittDrink = (length) => {
             const ArrAkt = JSON.parse(localStorage.getItem(`DrinkArray${i}`));
             alen = ArrAkt.length;
 
-            console.log(alen)
-            console.log(slen)
+            // console.log(alen)
+            // console.log(slen)
 
 
 
             Zwischenwert = [];
-            console.log(Zwischenwert);
+            // console.log(Zwischenwert);
         
             counter = 0;
 
@@ -107,40 +123,89 @@ const SchnittDrink = (length) => {
             for (let ii = 0; ii < slen; ii++) {
                 
                 for (let j = 0; j < alen; j++) {
-                    console.log("hello");
+                    // console.log("hello");
                     if (SchnittAkt[ii].strDrink == ArrAkt[j].strDrink) {
                         Zwischenwert[counter] = SchnittAkt[ii];
                         
                         localStorage.setItem("Zwischenwert",JSON.stringify(Zwischenwert));
-                        console.log(counter);
+                        // console.log(counter);
                         counter = (counter + 1);
-
-                    }
-                    
-                }
-                
-                
+                    }                    
+                }                
             }
             
-            console.log(JSON.parse(localStorage.getItem("Zwischenwert")));
+            // console.log(JSON.parse(localStorage.getItem("Zwischenwert")));
 
             localStorage.setItem("SchnittmengeDrinks",localStorage.getItem("Zwischenwert"));
 
-            console.log(JSON.parse(localStorage.getItem("SchnittmengeDrinks")));
+            // console.log(JSON.parse(localStorage.getItem("SchnittmengeDrinks")));
                    
         }
     }
 
-    // Parsing the Intersection and printing
+    // Parsing the Intersection and printing DONE
 
     console.log(JSON.parse(localStorage.getItem("SchnittmengeDrinks")));;
     
 }
 
+//Cocktail Ingredient Lookup
+const IngredientDetailRequest = (Ingredient)=>{
 
-var Ingredients = ["Lime","sugar","mint","Cachaca"];
+    const request = new XMLHttpRequest();
+    
+    request.open("GET", `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${Ingredient}`);
+    request.send();
+    request.onload = ()=>{
+
+        if(request.status == 200){
+            var Data = JSON.parse(request.response);
+            
+            console.log(Data.ingredients[0].strDescription);
+
+        }else{
+            console.log(`error ${request.status}`)
+        }
+    }
+}
+
+//Cocktail By Category
+const CategoryRequest = (Category) => {
+
+    const request = new XMLHttpRequest();
+    
+    request.open("GET", `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${Category}`);
+    request.send();
+    request.onload = ()=>{
+
+        if(request.status == 200){
+            var Data = JSON.parse(request.response);
+            
+            console.log(Data);
+
+        }else{
+            console.log(`error ${request.status}`)
+        }
+    }
+
+}
+
+
+var Ingredients = ["vodka","Gin","Lime Juice cordial"];
 
 IngredientRequest(Ingredients);
 
+var Name = "Army Special"
+
+NameRequest(Name);
+
+RandomRequest();
+
+var Ingredient = "light rum"
+
+IngredientDetailRequest(Ingredient);
+
+var Category = "Cocktail"
 
 
+CategoryRequest(Category);
