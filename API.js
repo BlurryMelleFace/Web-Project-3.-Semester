@@ -17,6 +17,29 @@ const NameRequest = (Name)=>{
         }
     }
 }
+const NameRequestName = (Name)=>{
+
+    const request = new XMLHttpRequest();
+    
+    request.open("GET", `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${Name}`);
+    request.send();
+    request.onload = ()=>{
+
+        if(request.status == 200){
+            var Data = JSON.parse(request.response);
+            
+            var NameArray = [];
+
+            for (let i = 0; i< Data.drinks.length; i++) {
+                NameArray[i] = Data.drinks[i].strDrink;         
+            }
+            console.log(NameArray)   
+
+        }else{
+            console.log(`error ${request.status}`)
+        }
+    }
+}
 
 //Random Cocktail
 const RandomRequest = ()=>{
@@ -193,7 +216,7 @@ const CategoryRequest = (Category) => {
 const NameSearchInput = document.querySelector("[Data-Search]")
 NameSearchInput.addEventListener("input",(e) => {
     const value = e.target.value
-    NameRequest(value);
+    if(value != 0) NameRequestName(value);
     console.log(value);
 }) 
 
