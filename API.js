@@ -12,8 +12,9 @@ const NameRequest = (Name)=>{
             var DataString = JSON.stringify(Data.drinks[0]);
             
             localStorage.setItem(`NameRequest`,DataString);
-            
+            document.getElementById("Lines").style.display="block"
             DisplayData();
+            
 
         }else{
             console.log(`error ${request.status}`)
@@ -328,7 +329,6 @@ NameSearchInput.addEventListener("input",(e) => {
     })
     // When Button Pressed
     document.getElementById("NameSearchButton").onclick = function(){ 
-        document.getElementById("Lines").style.display="block" 
         var Name = document.getElementById("NameSearchTextBar").value;
         NameRequest(Name);  
     }
