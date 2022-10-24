@@ -9,8 +9,11 @@ const NameRequest = (Name)=>{
 
         if(request.status == 200){
             var Data = JSON.parse(request.response);
+            var DataString = JSON.stringify(Data.drinks[0]);
             
-            console.log(Data.drinks);
+            localStorage.setItem(`NameRequest`,DataString);
+            
+            DisplayData();
 
         }else{
             console.log(`error ${request.status}`)
@@ -34,12 +37,10 @@ const NameRequestName = (Name)=>{
                 NameArray[i] = Data.drinks[i].strDrink;         
             }
 
-            localStorage.setItem(`NameRequestName`,JSON.stringify(NameArray))
+            localStorage.setItem(`NameRequestName`,(NameArray))
             const NameRequestArray = localStorage.getItem(`NameRequestName`);  
             
             let String = NameArray.toString();
-
-            console.log(String)
 
             //let StringBig = String.split(',').join("<");  (Interesting)
 
@@ -222,16 +223,53 @@ const CategoryRequest = (Category) => {
 }
 
 
-//Search
+//Display Data
+const DisplayData = () => {
+    RequestInStorage = JSON.parse(localStorage.getItem(`NameRequest`));
+        console.log(RequestInStorage);
+    
+        
+    document.getElementById('NameImage').innerHTML = null;
 
+    var element = document.getElementById('NameImage');
+
+    var ImageElement = document.createElement('img');
+    
+    ImageElement.setAttribute('src', RequestInStorage.strDrinkThumb);
+
+    element.appendChild(ImageElement);
+
+
+  
+
+    
+    
+
+
+
+
+
+
+}
+
+//Search
 const NameSearchInput = document.querySelector("[Data-Search]")
 NameSearchInput.addEventListener("input",(e) => {
+    //Looking Through All Inputs 
     const value = e.target.value
     if(value !== ""){
         NameRequestName(value);
     }
-    console.log(value);
-}) 
+    //Search For Specific Name 
+    document.getElementById("NameSearchButton").onclick = function(){ 
+        var Name = document.getElementById("NameSearchTextBar").value;
+        NameRequest(Name);
+
+        
+        
+    }
+
+})
 
 
 
@@ -247,10 +285,6 @@ NameSearchInput.addEventListener("input",(e) => {
 var Ingredients = ["vodka","Gin","Lime Juice cordial"];
 
 IngredientRequest(Ingredients);
-
-var Name = "Army Special"
-
-NameRequest(Name);
 
 RandomRequest();
 
