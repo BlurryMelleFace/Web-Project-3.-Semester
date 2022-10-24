@@ -225,31 +225,77 @@ const CategoryRequest = (Category) => {
 
 //Display Data
 const DisplayData = () => {
+    
+    //GettingTheData
     RequestInStorage = JSON.parse(localStorage.getItem(`NameRequest`));
         console.log(RequestInStorage);
+
+    //Showing Name
+    document.getElementById("NameText").innerHTML = RequestInStorage.strDrink;
     
-        
+    //Passing Image
     document.getElementById('NameImage').innerHTML = null;
-
     var element = document.getElementById('NameImage');
-
     var ImageElement = document.createElement('img');
-    
     ImageElement.setAttribute('src', RequestInStorage.strDrinkThumb);
-
+    ImageElement.setAttribute('width', "15%");
     element.appendChild(ImageElement);
 
+    //Showing Recepie
 
-  
+    Ingredients = [];
 
-    
-    
+    if(RequestInStorage.strIngredient1 != null) Ingredients[0] = RequestInStorage.strIngredient1
+    if(RequestInStorage.strIngredient2 != null) Ingredients[1] = RequestInStorage.strIngredient2
+    if(RequestInStorage.strIngredient3 != null) Ingredients[2] = RequestInStorage.strIngredient3
+    if(RequestInStorage.strIngredient4 != null) Ingredients[3] = RequestInStorage.strIngredient4
+    if(RequestInStorage.strIngredient5 != null) Ingredients[4] = RequestInStorage.strIngredient5
+    if(RequestInStorage.strIngredient6 != null) Ingredients[5] = RequestInStorage.strIngredient6
+    if(RequestInStorage.strIngredient7 != null) Ingredients[6] = RequestInStorage.strIngredient7
+    if(RequestInStorage.strIngredient8 != null) Ingredients[7] = RequestInStorage.strIngredient8
+    if(RequestInStorage.strIngredient9 != null) Ingredients[8] = RequestInStorage.strIngredient9
+    if(RequestInStorage.strIngredient10 != null) Ingredients[9] = RequestInStorage.strIngredient10
+    if(RequestInStorage.strIngredient11 != null) Ingredients[10] = RequestInStorage.strIngredient11
+    if(RequestInStorage.strIngredient12 != null) Ingredients[11] = RequestInStorage.strIngredient12
+    if(RequestInStorage.strIngredient13 != null) Ingredients[12] = RequestInStorage.strIngredient13
+    if(RequestInStorage.strIngredient14 != null) Ingredients[13] = RequestInStorage.strIngredient14
+    if(RequestInStorage.strIngredient15 != null) Ingredients[14] = RequestInStorage.strIngredient15
 
+    let IngredientsString = Ingredients.toString();
 
+    IngredientsFinal = IngredientsString.split(',').join("\r\n");
 
+    document.getElementById("NameIngredients").innerHTML = IngredientsFinal;
 
+    //Snowing Measurements
 
+    Measure = [];
 
+    if(RequestInStorage.strMeasure1 != null) Measure[0] = RequestInStorage.strMeasure1
+    if(RequestInStorage.strMeasure2 != null) Measure[1] = RequestInStorage.strMeasure2
+    if(RequestInStorage.strMeasure3 != null) Measure[2] = RequestInStorage.strMeasure3
+    if(RequestInStorage.strMeasure4 != null) Measure[3] = RequestInStorage.strMeasure4
+    if(RequestInStorage.strMeasure5 != null) Measure[4] = RequestInStorage.strMeasure5
+    if(RequestInStorage.strMeasure6 != null) Measure[5] = RequestInStorage.strMeasure6
+    if(RequestInStorage.strMeasure7 != null) Measure[6] = RequestInStorage.strMeasure7
+    if(RequestInStorage.strMeasure8 != null) Measure[7] = RequestInStorage.strMeasure8
+    if(RequestInStorage.strMeasure9 != null) Measure[8] = RequestInStorage.strMeasure9
+    if(RequestInStorage.strMeasure10 != null) Measure[9] = RequestInStorage.strMeasure0
+    if(RequestInStorage.strMeasure11 != null) Measure[10] = RequestInStorage.strMeasure11
+    if(RequestInStorage.strMeasure12 != null) Measure[11] = RequestInStorage.strMeasure12
+    if(RequestInStorage.strMeasure13 != null) Measure[12] = RequestInStorage.strMeasure13
+    if(RequestInStorage.strMeasure14 != null) Measure[13] = RequestInStorage.strMeasure14
+    if(RequestInStorage.strMeasure15 != null) Measure[14] = RequestInStorage.strMeasure15
+
+    let MeasureString = Measure.toString();
+
+    MeasureFinal = MeasureString.split(',').join("\r\n");
+
+    document.getElementById("NameMeasure").innerHTML = MeasureFinal;
+
+    //Instructions
+
+    document.getElementById("NameInstructions").innerHTML = RequestInStorage.strInstructions;
 }
 
 //Search
@@ -261,21 +307,32 @@ NameSearchInput.addEventListener("input",(e) => {
         NameRequestName(value);
     }
     //Search For Specific Name 
+    if(e.inputType == "deleteContentBackward"){ 
+        document.getElementById("NameImage").innerHTML = null;
+        document.getElementById("NameText").innerHTML = null;
+        document.getElementById("NameIngredients").innerHTML = null;
+        document.getElementById("NameMeasure").innerHTML = null;
+        document.getElementById("NameInstructions").innerHTML = null;
+        document.getElementById("Lines").style.display="none" 
+    } 
+    //When Enter is Pressed
+    pressed = 0;
+    NameSearchInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            if(pressed == 0){
+                event.preventDefault();
+                document.getElementById("NameSearchButton").click();
+                pressed += 1
+            }
+        }
+    })
+    // When Button Pressed
     document.getElementById("NameSearchButton").onclick = function(){ 
+        document.getElementById("Lines").style.display="block" 
         var Name = document.getElementById("NameSearchTextBar").value;
-        NameRequest(Name);
-
-        
-        
+        NameRequest(Name);  
     }
-
 })
-
-
-
-
-
-
 
 
 
