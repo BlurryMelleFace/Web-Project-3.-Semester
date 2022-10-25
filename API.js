@@ -13,7 +13,9 @@ const NameRequest = (Name)=>{
             
             localStorage.setItem(`NameRequest`,DataString);
             document.getElementById("Lines").style.display="block"
-            DisplayData();
+
+            RequestInStorage = JSON.parse(localStorage.getItem(`NameRequest`));
+            DisplayData(RequestInStorage);
             
 
         }else{
@@ -65,9 +67,13 @@ const RandomRequest = ()=>{
 
         if(request.status == 200){
             var Data = JSON.parse(request.response);
+            var DataString = JSON.stringify(Data.drinks[0]);
             
-            console.log(Data.drinks[0]);
+            localStorage.setItem(`RandomRequest`,DataString);
+            document.getElementById("Lines").style.display="block"
 
+            RequestInStorage = JSON.parse(localStorage.getItem(`RandomRequest`));
+            DisplayData(RequestInStorage);
         }else{
             console.log(`error ${request.status}`)
         }
@@ -224,12 +230,14 @@ const CategoryRequest = (Category) => {
 }
 
 
-//Display Data
-const DisplayData = () => {
+
+
+
+//Display Data (Name/Random)
+const DisplayData = (RequestInStorage) => {
     
     //GettingTheData
-    RequestInStorage = JSON.parse(localStorage.getItem(`NameRequest`));
-        console.log(RequestInStorage);
+    console.log(RequestInStorage);
 
     //Showing Name
     document.getElementById("NameText").innerHTML = RequestInStorage.strDrink;
@@ -298,8 +306,7 @@ const DisplayData = () => {
 
     document.getElementById("NameInstructions").innerHTML = RequestInStorage.strInstructions;
 }
-
-//Search
+//Search (Name/Random)
 const NameSearchInput = document.querySelector("[Data-Search]")
 NameSearchInput.addEventListener("input",(e) => {
     //Looking Through All Inputs 
@@ -332,7 +339,12 @@ NameSearchInput.addEventListener("input",(e) => {
         var Name = document.getElementById("NameSearchTextBar").value;
         NameRequest(Name);  
     }
+
 })
+//Random (Name/Random)
+document.getElementById("NameRandomButton").onclick = function(){
+    RandomRequest();
+}
 
 
 
@@ -343,13 +355,10 @@ var Ingredients = ["vodka","Gin","Lime Juice cordial"];
 
 IngredientRequest(Ingredients);
 
-RandomRequest();
-
 var Ingredient = "light rum"
 
 IngredientDetailRequest(Ingredient);
 
 var Category = "Cocktail"
-
 
 CategoryRequest(Category);
