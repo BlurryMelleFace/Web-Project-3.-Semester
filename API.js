@@ -12,7 +12,6 @@ const NameRequest = (Name)=>{
             var DataString = JSON.stringify(Data.drinks[0]);
             
             localStorage.setItem(`NameRequest`,DataString);
-            document.getElementById("Lines").style.display="block"
 
             RequestInStorage = JSON.parse(localStorage.getItem(`NameRequest`));
             DisplayData(RequestInStorage);
@@ -70,7 +69,7 @@ const RandomRequest = ()=>{
             var DataString = JSON.stringify(Data.drinks[0]);
             
             localStorage.setItem(`RandomRequest`,DataString);
-            document.getElementById("Lines").style.display="block"
+            document.getElementById("NameButtonIngredients").style=display="none"
 
             RequestInStorage = JSON.parse(localStorage.getItem(`RandomRequest`));
             DisplayData(RequestInStorage);
@@ -195,12 +194,23 @@ const IngredientDetailRequest = (Ingredient)=>{
     
     request.open("GET", `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${Ingredient}`);
     request.send();
-    request.onload = ()=>{
-
+    request.onload = async ()=>{
+        
         if(request.status == 200){
             var Data = JSON.parse(request.response);
-            
-            console.log(Data.ingredients[0].strDescription);
+
+            localStorage.setItem(`IngredientDetail`,Data.ingredients[0].strDescription);
+            let Detail = localStorage.getItem("IngredientDetail");
+
+            if(Detail != "null"){
+                const tex = document.createElement("h5");
+                tex.innerHTML = Detail;
+                document.getElementById("IngredientsInfo").appendChild(tex);
+
+                const tex1 = document.createElement("h1");
+                tex1.innerHTML = "\n";
+                document.getElementById("IngredientsInfo").appendChild(tex1);
+            }
 
         }else{
             console.log(`error ${request.status}`)
@@ -236,6 +246,11 @@ const CategoryRequest = (Category) => {
 //Display Data (Name/Random)
 const DisplayData = (RequestInStorage) => {
     
+
+    //Displaying Hidden
+    document.getElementById("Lines").style.display="block"
+    document.getElementById("IngredientDiv").style.display="block"
+
     //GettingTheData
     console.log(RequestInStorage);
 
@@ -298,6 +313,8 @@ const DisplayData = (RequestInStorage) => {
 
     let MeasureString = Measure.toString();
 
+    console.log(MeasureString)
+
     MeasureFinal = MeasureString.split(',').join("\r\n");
 
     document.getElementById("NameMeasure").innerHTML = MeasureFinal;
@@ -321,6 +338,8 @@ NameSearchInput.addEventListener("input",(e) => {
         document.getElementById("NameIngredients").innerHTML = null;
         document.getElementById("NameMeasure").innerHTML = null;
         document.getElementById("NameInstructions").innerHTML = null;
+        document.getElementById("NameButtonIngredients").style=display="none"
+        document.getElementById("IngredientDiv").style.display="none"
         document.getElementById("Lines").style.display="none" 
     } 
     //When Enter is Pressed
@@ -344,6 +363,18 @@ NameSearchInput.addEventListener("input",(e) => {
 //Random (Name/Random)
 document.getElementById("NameRandomButton").onclick = function(){
     RandomRequest();
+}
+//Get Ingredients (Custom)
+document.getElementById("IngredientButton").onclick = async function(){
+    document.getElementById("NameButtonIngredients").style.display="block";
+
+    //Delete existing Elements
+    document.getElementById("IngredientsInfo").innerHTML = null;
+    for (let i = 0; i < Ingredients.length; i++) {
+        
+        // Create element Text:
+        IngredientDetailRequest(Ingredients[i])
+    }
 }
 
 

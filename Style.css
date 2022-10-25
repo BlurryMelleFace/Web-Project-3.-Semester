@@ -21,6 +21,7 @@ body {
     --element-color: rgb(255, 255, 255);
     --alt-color: rgb(255, 179, 0);
     --alt2-color: rgb(26, 133, 210);
+    --alt3-color: rgb(137, 83, 25);
 
 
     background-color: var(--background-color);
@@ -99,6 +100,19 @@ h3{
     text-decoration: none solid rgb(68, 68, 68);
     font-variant: large;
     text-transform: none;
+}
+h5{
+    font-family: 'Poppins', sans-serif;
+    margin: 2rm;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    word-spacing: 4.4px;
+    color:  var(--alt3-color);
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-variant: large;
+    text-transform: none;
+    
 }
 p{
     font-size: 1.1rem;
