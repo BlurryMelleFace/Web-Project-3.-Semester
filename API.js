@@ -376,6 +376,12 @@ document.getElementById("IngredientButton").onclick = async function(){
         IngredientDetailRequest(Ingredients[i])
     }
 }
+document.getElementById("IngredientButtonVid").onclick = async function(){
+    names = document.getElementById("NameText").innerHTML;
+    console.log(names)
+    window.open(`https://www.youtube.com/results?search_query=${names} Cocktail`, '_blank');
+    
+}
 
 
 
